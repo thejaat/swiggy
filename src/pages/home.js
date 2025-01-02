@@ -111,7 +111,7 @@ const Home = () => {
                 }
                 } >Search</button>
             </div>
-            <Restrolist setallrestro={setAllrestaurant} filtrrestr={filterdata}/>
+            <Restrolist setallrestro={setAllrestaurant} filtrrestr={filteredrestro}/>
         </>
     )
 }

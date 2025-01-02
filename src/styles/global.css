@@ -2,6 +2,10 @@
     --main-color:rgb(254, 80, 5);
     font-family: "Parkinsans", serif;
 }
+/* utility */
+.greencolor{
+    color: rgb(38, 164, 115);
+}
 .header{
     background-color: var(--main-color);
 }
@@ -56,6 +60,17 @@
 
 .footer{
     background-color: var(--main-color);
+}
+
+/* about page */
+.aboutburger{
+    width: 100%;}
+.achieve{
+    border-right: 1px solid gray;
+}
+/* contact us page */
+.contactexecuivelogo{
+    width: 100%;
 }
 
 
