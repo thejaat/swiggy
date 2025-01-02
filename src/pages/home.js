@@ -29,6 +29,14 @@ const Home = () => {
     const [filteredrestro, setFilteredrestro] = useState([])
     const [searchtxt, setSearchtxt] = useState("")
     const [loading, setLoading] = useState(true); // State for loading
+   
+console.log(restroData);
+
+
+if (loading) {
+  console.log("Loading...");
+}
+
     const filterdata = (restaurant, searchtxt) => {
         return restaurant.filter((reto) => {
             return reto.info.name.toLowerCase().includes(searchtxt.toLowerCase())
