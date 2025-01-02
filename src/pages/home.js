@@ -8,7 +8,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 const Restuarentcard = (restaurt) => {
     return (
         <div className="card ">
-            <img className="card_img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restaurt.info.cloudinaryImageId} />
+            <img alt="restro" className="card_img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restaurt.info.cloudinaryImageId} />
             <span className="restroName fw-bold m-1">{restaurt.info.name}</span>
             <span  className="text-muted restrocuisne">{restaurt.info.cuisines.join(", ")}</span>
             <div className="d-flex align-items-center justify-content-between mt-2">
@@ -45,7 +45,7 @@ if (loading) {
     }
     useEffect(() => {
         getReastaurent()
-    }, [])
+    }, [getReastaurent])
 
     async function getReastaurent() {
         try {

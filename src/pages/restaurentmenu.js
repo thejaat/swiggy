@@ -33,7 +33,7 @@ const Restromenu = () => {
             {menuCard.length > 0 ? (
                 menuCard.map((menu) => (
                     <div key={menu.card.info.id}>
-                        <img className="menuItems" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + menu.card.info.imageId} />
+                        <img alt="menuItem" className="menuItems" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + menu.card.info.imageId} />
                         <p>{menu.card.info.name}</p>
                     </div>
                 ))
