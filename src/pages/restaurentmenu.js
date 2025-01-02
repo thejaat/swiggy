@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 
 const Restromenu = () => {
     const { id } = useParams();
-    const [menuCard, setMenuCard] = useState([]); // State to store menu items
+    const [menuCard, setMenuCard] = useState([]); 
     const [aboutRestaurent,setAboutRestaurent] = useState("")
 
     useEffect(() => {
         getRestaurentmenu();
-    }, []); // Run only once when the component mounts
-
+    }, []); 
     async function getRestaurentmenu() {
         try {
             const api = `https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=28.737324&lng=77.090981&submitAction=ENTER&restaurantId=${id}`;

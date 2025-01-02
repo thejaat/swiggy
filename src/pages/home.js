@@ -10,39 +10,34 @@ const Restuarentcard = (restaurt) => {
         <div className="card ">
             <img alt="restro" className="card_img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restaurt.info.cloudinaryImageId} />
             <span className="restroName fw-bold m-1">{restaurt.info.name}</span>
-            <span  className="text-muted restrocuisne">{restaurt.info.cuisines.join(", ")}</span>
+            <span className="text-muted restrocuisne">{restaurt.info.cuisines.join(", ")}</span>
             <div className="d-flex align-items-center justify-content-between mt-2">
-            
-            <span className="restrolocation">{restaurt.info.areaName}</span>
-            <span className="btn btn-success ">{restaurt.info.avgRating} <FontAwesomeIcon icon={faStar} style={{color: "#ffffff",}} /></span>
-           
-           
+
+                <span className="restrolocation">{restaurt.info.areaName}</span>
+                <span className="btn btn-success ">{restaurt.info.avgRating} <FontAwesomeIcon icon={faStar} style={{ color: "#ffffff", }} /></span>
+
+
             </div>
-            
+
 
         </div>
     )
 }
 // page 66 done..
-const Home = () => {
+const Restrolist = () => {
     const [allrestaurant, setAllrestaurant] = useState([])
     const [filteredrestro, setFilteredrestro] = useState([])
-    const [searchtxt, setSearchtxt] = useState("")
-    const [loading, setLoading] = useState(true); // State for loading
    
-console.log(restroData);
+    const [loading, setLoading] = useState(true); // State for loading
+
+    console.log(restroData);
 
 
-if (loading) {
-  console.log("Loading...");
-}
-
-    const filterdata = (restaurant, searchtxt) => {
-        return restaurant.filter((reto) => {
-            return reto.info.name.toLowerCase().includes(searchtxt.toLowerCase())
-        })
-
+    if (loading) {
+        console.log("Loading...");
     }
+
+    
     useEffect(() => {
         getReastaurent()
     }, [])
@@ -77,16 +72,8 @@ if (loading) {
 
     return (allrestaurant.length === 0) ? <ShimmerList /> : (
         <>
-            {/* {search container} */}
-            <div className="search-container m-4 d-flex align-items-center justify-content-center" >
-                <input type="text" className="search-input w-50 p-1" placeholder="seach a restaurent here ..." value={searchtxt} onChange={(e) => setSearchtxt(e.target.value)} />
-                <button className="btn search-btn ms-3 text-white" onClick={() => {
-                    const data = filterdata(allrestaurant, searchtxt)
-                    setFilteredrestro(data)
-                }
-                } >Search</button>
-            </div>
-            <div></div>
+
+
             {/* { restaurent} */}
             <div className="restro-list">
                 {
@@ -100,6 +87,32 @@ if (loading) {
                     })
                 }
             </div >
+        </>
+    )
+}
+
+const Home = () => {
+    const [searchtxt, setSearchtxt] = useState("")
+    const [allrestaurant, setAllrestaurant] = useState([])
+    const [filteredrestro, setFilteredrestro] = useState([])
+    const filterdata = (restaurant, searchtxt) => {
+        return restaurant.filter((reto) => {
+            return reto.info.name.toLowerCase().includes(searchtxt.toLowerCase())
+        })
+
+    }
+    return (
+        <>
+            {/* {search container} */}
+            <div className="search-container m-4 d-flex align-items-center justify-content-center" >
+                <input type="text" className="search-input w-50 p-1" placeholder="seach a restaurent here ..." value={searchtxt} onChange={(e) => setSearchtxt(e.target.value)} />
+                <button className="btn search-btn ms-3 text-white" onClick={() => {
+                    const data = filterdata(allrestaurant, searchtxt)
+                    setFilteredrestro(data)
+                }
+                } >Search</button>
+            </div>
+            <Restrolist />
         </>
     )
 }
