@@ -1,4 +1,3 @@
-import { restroData } from "../utils/restrodata"
 import { useState, useEffect } from "react"
 import ShimmerList from "../constants/restrolistshimer"
 import { Link } from "react-router-dom"
@@ -30,7 +29,7 @@ const Restrolist = () => {
    
     const [loading, setLoading] = useState(true); // State for loading
 
-    console.log(restroData);
+   
 
 
     if (loading) {
@@ -112,7 +111,7 @@ const Home = () => {
                 }
                 } >Search</button>
             </div>
-            <Restrolist />
+            <Restrolist setallrestro={setAllrestaurant} filtrrestr={filterdata}/>
         </>
     )
 }
