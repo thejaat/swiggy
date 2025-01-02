@@ -23,20 +23,48 @@ const Restuarentcard = (restaurt) => {
     )
 }
 // page 66 done..
-const Restrolist = () => {
+const Restrolist = (props) => {
+    
+
+    return (props.allrestaurant.length === 0) ? <ShimmerList /> : (
+        <>
+
+
+            {/* { restaurent} */}
+            <div className="restro-list">
+                {
+                    props.filteredrestro.map((restaurant) => {
+                        return (
+                            <Link className="text-decoration-none" to={"/restaurent/" + restaurant.info.id} >
+                                <Restuarentcard {...restaurant} key={restaurant.info.id} />
+                            </Link>
+                        )
+
+                    })
+                }
+            </div >
+        </>
+    )
+}
+
+const Home = () => {
+    const [searchtxt, setSearchtxt] = useState("")
     const [allrestaurant, setAllrestaurant] = useState([])
     const [filteredrestro, setFilteredrestro] = useState([])
-   
-    const [loading, setLoading] = useState(true); // State for loading
+    const [loading, setLoading] = useState(true); 
 
-   
+    const filterdata = (restaurant, searchtxt) => {
+        return restaurant.filter((reto) => {
+            return reto.info.name.toLowerCase().includes(searchtxt.toLowerCase())
+        })
 
+    }
+  
 
     if (loading) {
         console.log("Loading...");
     }
 
-    
     useEffect(() => {
         getReastaurent()
     }, [])
@@ -68,38 +96,6 @@ const Restrolist = () => {
 
 
     }
-
-    return (allrestaurant.length === 0) ? <ShimmerList /> : (
-        <>
-
-
-            {/* { restaurent} */}
-            <div className="restro-list">
-                {
-                    filteredrestro.map((restaurant) => {
-                        return (
-                            <Link className="text-decoration-none" to={"/restaurent/" + restaurant.info.id} >
-                                <Restuarentcard {...restaurant} key={restaurant.info.id} />
-                            </Link>
-                        )
-
-                    })
-                }
-            </div >
-        </>
-    )
-}
-
-const Home = () => {
-    const [searchtxt, setSearchtxt] = useState("")
-    const [allrestaurant, setAllrestaurant] = useState([])
-    const [filteredrestro, setFilteredrestro] = useState([])
-    const filterdata = (restaurant, searchtxt) => {
-        return restaurant.filter((reto) => {
-            return reto.info.name.toLowerCase().includes(searchtxt.toLowerCase())
-        })
-
-    }
     return (
         <>
             {/* {search container} */}
@@ -111,7 +107,7 @@ const Home = () => {
                 }
                 } >Search</button>
             </div>
-            <Restrolist setallrestro={setAllrestaurant} filtrrestr={filteredrestro}/>
+            <Restrolist allrestaurant={allrestaurant} setallrestro={setAllrestaurant} filteredrestro={filteredrestro}/>
         </>
     )
 }

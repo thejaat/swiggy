@@ -72,6 +72,30 @@
 .contactexecuivelogo{
     width: 100%;
 }
+.retaurentMenu{
+    max-width: 1000px;
+    width: 90%;
+    margin: auto;
+}
+.aboutRestro{
+    background-color: #ececec;
+ border-radius: 15px;
+}
+.aboutRestroImg{
+    height: 200px;
+}
+
+.menuCardbox{
+width: 60%;
+margin: auto;
+border-radius: 10px;
+background-color: #ececec;
+
+}
+
+@media  (max-width:768px) {
+    .menuCardbox{width: 90%};
+}
 
 
 
