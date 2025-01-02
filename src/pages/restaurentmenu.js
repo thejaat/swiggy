@@ -27,7 +27,7 @@ const Restromenu = () => {
     return (
         <div>
             <h1>Restaurant name: {aboutRestaurent.name}</h1>
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + aboutRestaurent.cloudinaryImageId} />
+            <img alt="restroimg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + aboutRestaurent.cloudinaryImageId} />
             <p>{aboutRestaurent.areaName}</p>
             <p>{aboutRestaurent.avgRating} Stars</p>
             {menuCard.length > 0 ? (

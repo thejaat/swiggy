@@ -45,7 +45,7 @@ if (loading) {
     }
     useEffect(() => {
         getReastaurent()
-    }, [getReastaurent])
+    }, [])
 
     async function getReastaurent() {
         try {
